@@ -3,11 +3,15 @@ import { HashConnect } from "hashconnect";
 import { AccountId, LedgerId, ContractExecuteTransaction, ContractFunctionParameters, Hbar } from "@hashgraph/sdk";
 
 const env = "testnet";
+// This block is what a wallet shows the user during pairing, so it has to be this
+// product. It previously read "HederaAir", carried over with the rest of this file from
+// another project, and pointed at localhost. Deriving the origin at runtime means it is
+// correct on any domain without one being hardcoded here.
 const appMetadata = {
-    name: "HederaAir",
-    description: "HederaAir - Hedera Hashgraph DApp",
+    name: "TerraCred",
+    description: "TerraCred - tokenised property collateral on Hedera",
     icons: [typeof window !== 'undefined' ? window.location.origin + "/favicon.ico" : "/favicon.ico"],
-    url:  "http://localhost:3000",
+    url: typeof window !== 'undefined' ? window.location.origin : "https://terracred.xyz",
 };
 
 // Initialize HashConnect only on client side

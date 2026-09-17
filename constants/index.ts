@@ -1,6 +1,9 @@
 export const CONFIG = {
-  // Backend API
-  API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api',
+  // Backend API. Empty by default: with no backend hosted, falling back to localhost
+  // meant the public site issued requests that could never resolve. When this is unset
+  // the API client serves the demo fixtures instead (see lib/demo-data.ts). Set
+  // NEXT_PUBLIC_API_URL to a real backend to turn that off.
+  API_URL: process.env.NEXT_PUBLIC_API_URL || '',
   
   // Hedera Network
   HEDERA_NETWORK: 'testnet',
